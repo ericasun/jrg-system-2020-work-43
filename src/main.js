@@ -1,6 +1,7 @@
 const $siteList = $('.siteList')
 const $lastLi = $siteList.find('li.last')
 const x = localStorage.getItem('x')
+
 const xObject = JSON.parse(x)    // 把字符串变成对象
 const hashMap = xObject || [
     {logo:'A', url:'https://www.acfun.cn'},
@@ -35,6 +36,7 @@ const render = () =>{
             window.open(node.url)
         })
         $li.on('click', '.close', (e)=>{
+            console.log(e);
             e.stopPropagation()  // 阻止冒泡
             hashMap.splice(index, 1)
             render()
@@ -64,7 +66,7 @@ window.onbeforeunload = ()=>{
 
 $(document).on('keypress',(e)=>{
     const {key} = e
-    for(let i = 0; i<hashMap.length; i++){
+    for(let i = 0; i < hashMap.length; i++){
         if(hashMap[i].logo.toLowerCase() === key){
             window.open(hashMap[i].url)
         }

@@ -109,7 +109,7 @@ body{
     cursor: default;
 }
 
-.siteList .site:hover> .close {
+.siteList .site:hover > .close {
     display:block;
 }
 
